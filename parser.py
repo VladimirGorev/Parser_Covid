@@ -87,13 +87,13 @@ print("\n", "\n", "                       Disease statistics have been updated o
 table = pd.DataFrame({
     'City': city_list,
     'Total infections': list_total_number_of_infections,
-    'Active patients':active_patients_list,
-    'Cured people':cut_cured_people_list,
-    'Dead people':dead_people_list
+    'Active patients': active_patients_list,
+    'Cured people': cut_cured_people_list,
+    'Dead people': dead_people_list
 })
 print(table)
 
-# table.to_excel("Covid.xlsx")  # create our pandas DataFrame in excel format
+table.to_excel("Covid.xlsx")  # create our pandas DataFrame in excel format
 table.info()
 
 table["Total infections"] = pd.to_numeric(table["Total infections"])
@@ -123,7 +123,7 @@ def draw_total_infections():
     plt.show()
 
 
-def draw_diagram(sorted_table,grouping_by_field_from_sorted_table):
+def draw_diagram(sorted_table, grouping_by_field_from_sorted_table):
 
     x = sorted_table["City"].head(10)
     y = sorted_table[grouping_by_field_from_sorted_table].head(10)
@@ -138,4 +138,4 @@ def draw_diagram(sorted_table,grouping_by_field_from_sorted_table):
 
 draw_total_infections()
 
-#draw_diagram(active_patients_sorted, "Active patients")
+# draw_diagram(active_patients_sorted, "Active patients")
